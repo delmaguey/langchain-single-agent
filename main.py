@@ -1,16 +1,11 @@
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-from langchain.tools import tool
 from langchain.agents import create_agent
+from src.tools.age_tool import calculate_age
 #from pprint import pprint
 
+
 load_dotenv()
-
-@tool
-def calculate_age(year:int)->str:
-    """Calcula edad basada en el año de nacimiento."""
-
-    return f"Edad aproximada: {2026-year}"
 
 llm = ChatOpenAI(
     model="gpt-4.1-mini"
